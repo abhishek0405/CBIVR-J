@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome Kit-->
+    <script src="https://kit.fontawesome.com/3808de5cb1.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href="https://api.fontshare.com/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>CBIVR</title>
+</head>
+<body>
+<div>
+<h2>Upload your Image</h2>
+
+<P></P>
+<!-- Upload  -->
+<form id="file-upload-form" class="uploader">
+  <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+  <label for="file-upload" id="file-drag">
+    <img id="file-image" src="#" alt="Preview" class="hidden">
+    <div id="start">
+      <i class="fa fa-download" aria-hidden="true"></i>
+      <div>Select a file or drag here</div>
+      <div id="notimage" class="hidden">Please select an image</div>
+      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+    </div>
+    <div id="response" class="hidden">
+      <div id="messages"></div>
+      <progress class="progress" id="file-progress" value="0">
+        <span>0</span>%
+      </progress>
+    </div>
+  </label>
+</form>
+</div>
+<p></p>
+
+<div class="wrapper">
+    <div class="card"><img src=""/>
+     
+    </div>
+    <div class="card"><img src=""/>
+      
+    </div>
+    <div class="card"><img src=""/>
+      
+    </div>
+    
+  </div>
+
+  <div class="wrapper1">
+    <div class="card"><img src=""/>
+     
+    </div>
+    <div class="card"><img src=""/>
+      
+    </div>
+    <div class="card"><img src=""/>
+      
+    </div>
+    
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../static/js/script.js"></script>
+</body>
+</html>
