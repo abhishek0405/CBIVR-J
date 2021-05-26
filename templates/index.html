@@ -19,7 +19,7 @@
 
 <P></P>
 <!-- Upload  -->
-<form id="file-upload-form" class="uploader">
+<form id="file-upload-form" class="uploader" method="POST"  action="{{ url_for('Home') }}" enctype="multipart/form-data">
   <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
   <label for="file-upload" id="file-drag">

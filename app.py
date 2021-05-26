@@ -15,7 +15,7 @@ app=Flask(__name__)
 def Home():
     if request.method == 'POST':
         file1 = request.files['file1']
-        
+        print(file1)
 
         
         

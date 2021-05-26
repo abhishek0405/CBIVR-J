@@ -9,17 +9,16 @@ autoencoder = load_model('./weights/autoencoder_fashion_data.h5')
 # Get encoder layer from trained model
 encoder = Model(inputs=autoencoder.input, outputs=autoencoder.get_layer('encoder').output)
 X_train_clothes = np.load('./weights/X_train_clothes.npy')
-y_train_clothes = np.load('./weights/y_train_clothes.npy')
+y_train_clothes = np.load('./weights/y_train_clothes_new.npy')
 
 
 def retrieve_closest_images(test_element, test_label, num_images, n_samples=10):
-    learned_codes = encoder.predict(X_train_clothes)
-    learned_codes = learned_codes.reshape(learned_codes.shape[0],
-                                          learned_codes.shape[1] * learned_codes.shape[2] * learned_codes.shape[3])
+    
+    learned_codes = np.load("./weights/saved_features.npy")
 
     test_code = encoder.predict(np.array([test_element]))
     test_code = test_code.reshape(test_code.shape[1] * test_code.shape[2] * test_code.shape[3])
-
+    print(test_code)
     distances = []
 
     for code in learned_codes:
@@ -32,6 +31,9 @@ def retrieve_closest_images(test_element, test_label, num_images, n_samples=10):
     labels[labels != test_label] = -1
     labels[labels == test_label] = 1
     labels[labels == -1] = 0
+    print(distances.shape)
+    print(labels.shape)
+    print(learned_code_index.shape)
     distance_with_labels = np.stack((distances, labels, learned_code_index), axis=-1)
     sorted_distance_with_labels = distance_with_labels[distance_with_labels[:, 0].argsort()]
 

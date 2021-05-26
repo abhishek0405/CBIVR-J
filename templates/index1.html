@@ -1,8 +1,43 @@
-<h1>Kunikida kunnnnnnnnnnnnnnnnnnn</h1>
 
-<form method="POST"  action="{{ url_for('Home') }}" enctype="multipart/form-data">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome Kit-->
+    <script src="https://kit.fontawesome.com/3808de5cb1.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href="https://api.fontshare.com/css?f[]=general-sans@1&display=swap" rel="stylesheet">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>CBIVR</title>
+</head>
+<body>
+<h2>Upload your Image</h2>
+
+<form id="file-upload-form" class="uploader" method="POST"  action="{{ url_for('Home') }}" enctype="multipart/form-data">
     
-    <div><input type='file' name='file1' id="fileuplaod" accept="image/*"  /></div>
+    
+        <!--<input type='file' name='file1' id="fileuplaod" accept="image/*"  />-->
+
+        <input id="file-upload" name="file1" type="file" name="fileUpload" accept="image/*" />
+
+        <label for="file-upload" id="file-drag">
+          <img id="file-image" src="#" alt="Preview" class="hidden">
+          <div id="start">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <div>Select a file or drag here</div>
+            <div id="notimage" class="hidden">Please select an image</div>
+            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+          </div>
+          <div id="response" class="hidden">
+            <div id="messages"></div>
+            <progress class="progress" id="file-progress" value="0">
+              <span>0</span>%
+            </progress>
+          </div>
+        </label>
+    
+    
     
     <div>
         <button type="submit" class="submit">Submit</button>
@@ -12,6 +47,12 @@
 
 
         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name1)}}" alt="input here" onerror="this.style.display='none'">
-            <img class="img-responsive" src=" {{url_for('send_image', filename=image_name2)}}" alt="results here" onerror="this.style.display='none'">
+            <img class="img-responsive" height="400" width="400" src=" {{url_for('send_image', filename=image_name1)}}" alt="input here" onerror="this.style.display='none'">
+            <p></p>
+            <h2>Retrieval</h2>
+            <p></p>
+            <img class="img-responsive" height="400"   src=" {{url_for('send_image', filename=image_name2)}}" alt="results here" onerror="this.style.display='none'">
         </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../static/js/script.js"></script>
+</body>
